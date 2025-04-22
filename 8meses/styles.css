@@ -1,0 +1,190 @@
+/* —— Estilos generales —— */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffeaea;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* —— Corazón animado —— */
+.decoracion-corazon {
+    width: 100px;
+    height: 100px;
+    background-color: #e63946;
+    position: relative;
+    margin: 100px auto 0; /* Baja el corazón un poco */
+    transform: rotate(45deg);
+    box-shadow: 0 0 30px rgba(230, 57, 70, 0.4);
+    animation: latido 1.5s infinite;
+    z-index: 2;
+}
+.decoracion-corazon::before,
+.decoracion-corazon::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: #e63946;
+    border-radius: 50%;
+    position: absolute;
+}
+.decoracion-corazon::before {
+    top: -50px;
+    left: 0;
+}
+.decoracion-corazon::after {
+    top: 0;
+    left: -50px;
+}
+@keyframes latido {
+    0%, 100% { transform: rotate(45deg) scale(1); }
+    50%     { transform: rotate(45deg) scale(1.1); }
+}
+
+/* —— Título y botón —— */
+.contenido {
+    margin-top: 40px;
+}
+.contenido h1 {
+    color: #e63946;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+.boton {
+    display: inline-block;
+    background-color: #fbb1c1;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+.boton:hover {
+    background-color: #f892a2;
+}
+
+/* —— Carta —— */
+.carta {
+    max-width: 600px;
+    margin: 60px auto 40px;
+    padding: 40px 30px;
+    background-color: #fffdf0;
+    border: 1px solid #e2d5b7;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.03) 0,
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 30px
+      );
+    background-size: 100% 30px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #4a4a4a;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* —— Pie con ratones y fecha —— */
+.footer-ratones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+.raton {
+    width: 100px;  /* Ajusta este valor para volver a agrandar */
+    height: auto;
+}
+.fecha {
+    font-size: 1em;
+    color: #333;
+}
+
+/* —— Fotos (fotos.html) —— */
+.container {
+    padding: 40px 20px;
+    background-color: #fff0f5;
+}
+.container h2 {
+    color: #e63946;
+    margin-bottom: 30px;
+}
+.photos-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #fbb1c1;
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-button:hover {
+    background-color: #f892a2;
+}
+/* Estilo general del contenedor */
+
+/* Estilo general del álbum */
+.album {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 imágenes por fila */
+    gap: 15px;
+    padding: 10px;
+}
+
+/* Estilo para las fotos */
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Animación al pasar el cursor */
+}
+
+/* Efecto de animación al pasar el cursor */
+.photo:hover img {
+    transform: translateY(-10px); /* Mueve la imagen hacia arriba */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+
+/* Botón para regresar */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #ff69b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #ff3385;
+}
+
+/* Responsive: 3 imágenes por fila en pantallas medianas */
+@media (max-width: 768px) {
+    .album {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Responsive: 2 imágenes por fila en pantallas pequeñas */
+@media (max-width: 480px) {
+    .album {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
